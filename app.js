@@ -1,12 +1,24 @@
 alert("Bem Vindo ao número secreto!");
 
-let numeroSecreto = 8;
-console.log('Numero Secreto: ' + numeroSecreto);
-let chute = prompt("Digite o número entre 1 e 10: ");
-console.log('Chute: '+ chute);
+let maximo = 50;
+let numeroSecreto = parseInt(Math.random() * maximo + 1);
+let chute;
+let tentativas = 0;
 
-if (numeroSecreto == chute) {
-  alert(`O número é ${numeroSecreto}! Você Acertou`);
-} else {
-  alert("Errou o numero secreto!");
+
+console.log(numeroSecreto);
+
+while (chute != numeroSecreto) {
+  chute = prompt(`Digite o número entre 1 e ${maximo}: `);
+  tentativas++;
+  if (numeroSecreto == chute) {
+    alert(`O número é ${numeroSecreto}! Você Acertou com ${tentativas} tentativas`);
+    break;
+  } else {
+    if (chute > numeroSecreto) {
+      alert(`O numero secreto é menor que ${chute}!`);
+    } else {
+      alert(`O numero secreto é maior que ${chute}!`);
+    }
+  }
 }
